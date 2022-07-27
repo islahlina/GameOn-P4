@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground"); // héritage du form, grands-parents du formulaire
 const modalBtn = document.querySelectorAll(".modal-btn"); // contient le bouton je m'inscris
-const formData = document.querySelectorAll(".formData"); // contient toutes les valeurs du form
 const closeModalBtn = document.querySelectorAll(".close"); // span close permet de fermer la modale
 const formElement = document.querySelectorAll("form"); // contient le formulaire
 // recuperer le bouton close et l'assigner a const closeModalBtn = OK ✅
@@ -26,7 +25,7 @@ const formElement = document.querySelectorAll("form"); // contient le formulaire
 modalBtn.forEach((btn) => {
   btn.addEventListener("click", launchModal);
 })
-// LAUNCH MODAL FORM
+// LAUNCH MODAL FORM (lancement de la modale )
 function launchModal() {
   modalbg.style.display = "block";
 }
@@ -52,13 +51,13 @@ formElement.forEach((form) => {
 //     modifier la valeur de l'attribut data-error en inserant
 //     mettre la valeur de l'attribut data-error-visible a true
 // VALEUR STOCKÉES DANS DES CONSTANTES
-const formDataAll = document.querySelectorAll('.form-data');
-const formDataFirst = document.querySelector("#first");
-const formDataLast = document.querySelector("#last");
-const formDataEmail = document.querySelector("#email");
-const formDataBirthdate = document.querySelector("#birthdate");
-const formDataQuantity =document.querySelector("#quantity");
-const formDataLocations = document.querySelector("#locations-container");
+const formDataAll = document.querySelectorAll('.form-data');  // contient toutes les valeurs du form
+const formDataFirst = document.querySelector("#first"); // input avec l'ID first : prénom
+const formDataLast = document.querySelector("#last"); // input avec l'ID last : nom
+const formDataEmail = document.querySelector("#email"); // input avec l'ID email : email
+const formDataBirthdate = document.querySelector("#birthdate"); // input avec l'ID birthdate : birthdate
+const formDataQuantity =document.querySelector("#quantity"); // input avec l'ID quantity : quantité de tournois
+const formDataLocations = document.querySelector("#locations-container"); // input avec l'ID locations-container : checkbox-input ID différent car il y a plusieurs checkbox-input
 
 
 function validateForm(event){
@@ -113,10 +112,7 @@ function validateForm(event){
   } else {
     formDataBirthdate.parentNode.setAttribute("data-error-visible", "false");
   }
-  if (valid === true) {
-    closeModal();
-  }
-// CONSTANTE POUR QUANTITY (NOMBRE TOURNOIS)
+  // CONSTANTE POUR QUANTITY (NOMBRE TOURNOIS)
     const quantityForm = form.quantity.value;
     if (quantityForm === "" || quantityForm.length < 1) {
       console.error("Chaîne de caractère trop petite");
@@ -127,7 +123,7 @@ function validateForm(event){
       formDataQuantity.parentNode.setAttribute("data-error-visible", "false");
     }
 
-    // CONSTANTE POUR QUANTITY (QUEL TOURNOIS)
+  // CONSTANTE POUR QUANTITY (QUEL TOURNOIS)
     const locationForm = form.location;
     if (!locationForm.checked) {
       console.error("Pour finaliser votre inscription, merci de cocher un lieu");
@@ -142,4 +138,72 @@ function validateForm(event){
       closeModal();
     }
 }
+// Faire une fonction qui appellera bground id: modalAnimation qui est en display none dans le CSS et le passé en block à la condition que le formulaire soit valider.
 
+const formValid = document.getElementById("#modalAnimation");
+const formInvalid = document.getElementById();
+const registerValid = document.getElementById(".close"); // span close fonctionne avec l'autre fonction ???
+const submitForm = (e) => {
+  e.preventDefault();
+  //isValidText = true
+  let isValidForm = true;
+  if (isValidForm) {
+    modalbg.style.display = "none";
+    formValid.style.display = "block";
+    form.rest();
+  }
+}
+
+
+
+
+
+
+// BOUCLES POUR modalAnimation
+/* Événement lancement de modalAnimation
+formValid.forEach((div) => {
+  div.addEventListener('click', openModal);
+})
+function openModal() {
+  formValid.style.display = "block";
+}
+
+// Événement fermeture de modalAnimation
+registerValid.forEach((span) => {
+  span.addEventListener('click', closeModal);
+})
+function closeModal() {
+  registerValid.style.display = "none";
+}
+
+// CONDITIONS POUR modalAnimation
+// Condition après que la personne a cliqué sur "je m'inscris"
+
+function registrationFinish() {
+  e.preventDefault();
+  let valid = true;
+  if(valid === true) {
+    openModal();
+  }
+}*/
+
+// FAIRE FONCTION PERMET D'AFFICHER modalAnimation
+// FAIRE ENSUITE UNE CONDITION QUI PERMET D'AFFICHER modalAnimation QUE QUAND LE FORMULAIRE SERA VALIDE
+// ENSUITE, PRECISER DANS LE ELSE DE LA FONCTION CI-DESSUS DE NE PAS AFFICHER modalAnimation SI LE FORMULAIRE NE L'EST PAS
+
+/*function modalRegister() {
+  formValid.style.display = "block";
+  e.preventDefault();
+  let valid = true;
+  if(formDataAll === false) {
+    console.log(formValid);
+  } else {
+    console.error("Merci de remplir le formulaire pour valider votre inscription");
+  }
+}
+
+function inscriptionValidate() {
+  if(formDataAll === true) {
+    
+  }
+}*/
