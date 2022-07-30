@@ -25,7 +25,7 @@ const formElement = document.querySelectorAll("form"); // contient le formulaire
 modalBtn.forEach((btn) => {
   btn.addEventListener("click", launchModal);
 })
-// LAUNCH MODAL FORM (lancement de la modale )
+// LAUNCH MODAL FORM (lancement de la modale)
 function launchModal() {
   modalbg.style.display = "block";
 }
@@ -59,10 +59,18 @@ const formDataBirthdate = document.querySelector("#birthdate"); // input avec l'
 const formDataQuantity =document.querySelector("#quantity"); // input avec l'ID quantity : quantité de tournois
 const formDataLocations = document.querySelector("#locations-container"); // input avec l'ID locations-container : checkbox-input ID différent car il y a plusieurs checkbox-input
 
-
+// FUNCTION SUBMIT FORMELEMENT
 function validateForm(event){
   event.preventDefault();
   let valid = true;
+  function resetFormAttr() {
+    for (const locationForm of form) {
+      const getLocationFormAttr = formDataLocations.getAttribute("data-error-visible");
+      if (getElementAttr){
+        formDataLocations.setAttribute("data-error-visible", "false");
+      }
+    }
+  }
   // CONSTANTE POUR FIRST NAME (PRÉNOM)
   const form = event.currentTarget;
   const firstName = form.first.value;
@@ -73,6 +81,7 @@ function validateForm(event){
     valid = false;
   } else {
     formDataFirst.parentNode.setAttribute("data-error-visible", "false");
+    formDataFirst.parentNode.setAttribute("data-error-display", "false");
   }
   // CONSTANTE POUR LAST NAME (NOM)
   const lastName = form.last.value;
@@ -138,9 +147,17 @@ function validateForm(event){
       closeModal();
     }
 }
+/*function resetFormAttr(){
+  for (const locationForm of formData){
+    const formDataLocations = form.getAttribute("data-error-visible");
+    if(formDataLocations){
+      form.setAttribute("data-error-visible", "false");
+    }
+  }
+}
 // Faire une fonction qui appellera bground id: modalAnimation qui est en display none dans le CSS et le passé en block à la condition que le formulaire soit valider.
 
-const formValid = document.getElementById("#modalAnimation");
+/*const formValid = document.getElementById("#modalAnimation");
 const formInvalid = document.getElementById();
 const registerValid = document.getElementById(".close"); // span close fonctionne avec l'autre fonction ???
 const submitForm = (e) => {
@@ -152,9 +169,14 @@ const submitForm = (e) => {
     formValid.style.display = "block";
     form.rest();
   }
-}
+}*/
 
+/* ÉTAPES :
+* J'ai remplis le formulaire entièrement, je clique sur le bouton je m'inscris, une fenêtre apparaît avec écrit "Merci pour votre inscription", je clique sur le bouton fermer. *
 
+1 - Faire une condition ; si le formulaire est valide et que tous les champs sont remplis alors au clique sur "je m'inscris" => openModal !
+2 - Si openModal alors le formulaire se ferme.
+3 - Pour fermer openModal : clique sur la croix OU sur le btn fermer.
 
 
 
