@@ -144,93 +144,36 @@ function validateForm(event){
       openConfirmationModal();
     }
 }
-
+/* MODAL ANIMATION FORM IS VALID */
+// FUNCTION FOR OPENMODALE WHEN FORM IS VALID BTN
 document.getElementById('modalAnimation').style.display = 'none';
-
 function openConfirmationModal() {
   document.getElementById('modalAnimation').style.display = 'block';
   //console.log(confirmationContainer);
   //confirmationContainer.style.display = "block";
 }
-/*function resetFormAttr(){
-  for (const locationForm of formData){
-    const formDataLocations = form.getAttribute("data-error-visible");
-    if(formDataLocations){
-      form.setAttribute("data-error-visible", "false");
-    }
-  }
-}
-// Faire une fonction qui appellera bground id: modalAnimation qui est en display none dans le CSS et le passé en block à la condition que le formulaire soit valider.
-
-/*const formValid = document.getElementById("#modalAnimation");
-const formInvalid = document.getElementById();
-const registerValid = document.getElementById(".close"); // span close fonctionne avec l'autre fonction ???
-const submitForm = (e) => {
-  e.preventDefault();
-  //isValidText = true
-  let isValidForm = true;
-  if (isValidForm) {
-    modalbg.style.display = "none";
-    formValid.style.display = "block";
-    form.rest();
-  }
-}*/
-
-/* ÉTAPES :
-* J'ai remplis le formulaire entièrement, je clique sur le bouton je m'inscris, une fenêtre apparaît avec écrit "Merci pour votre inscription", je clique sur le bouton fermer. *
-
-1 - Faire une condition ; si le formulaire est valide et que tous les champs sont remplis alors au clique sur "je m'inscris" => openModal !
-2 - Si openModal alors le formulaire se ferme.
-3 - Pour fermer openModal : clique sur la croix OU sur le btn fermer.
-
-
-
-
-// BOUCLES POUR modalAnimation
-/* Événement lancement de modalAnimation
-formValid.forEach((div) => {
-  div.addEventListener('click', openModal);
+const registerModal = document.querySelectorAll('.register-modal');
+const registerBtn = document.querySelectorAll('.register-btn');
+// CLOSE MODAL EVENT BTN
+registerBtn.forEach((btn) => {
+  btn.addEventListener('click', formClose);
 })
-function openModal() {
-  formValid.style.display = "block";
+
+// CLOSE MODAL FUNCTION BTN
+function formClose() {
+  //registerModal.style.display = "none";
+  registerModal[0].style.display = "none";
 }
 
-// Événement fermeture de modalAnimation
-registerValid.forEach((span) => {
-  span.addEventListener('click', closeModal);
+// CLOSE MODAL "X" (CROSS)
+const crossClose = document.querySelectorAll('.close-modal-validate');
+
+// CLOSE MODAL EVENT CROSS
+crossClose.forEach((span) => {
+  span.addEventListener('click', formClose);
 })
-function closeModal() {
-  registerValid.style.display = "none";
+
+// CLOSE MODAL FUNCTION CROSS
+function formClose(){
+  registerModal[0].style.display = "none";
 }
-
-// CONDITIONS POUR modalAnimation
-// Condition après que la personne a cliqué sur "je m'inscris"
-
-function registrationFinish() {
-  e.preventDefault();
-  let valid = true;
-  if(valid === true) {
-    openModal();
-  }
-}*/
-
-// FAIRE FONCTION PERMET D'AFFICHER modalAnimation
-// FAIRE ENSUITE UNE CONDITION QUI PERMET D'AFFICHER modalAnimation QUE QUAND LE FORMULAIRE SERA VALIDE
-// ENSUITE, PRECISER DANS LE ELSE DE LA FONCTION CI-DESSUS DE NE PAS AFFICHER modalAnimation SI LE FORMULAIRE NE L'EST PAS
-
-/*function modalRegister() {
-  formValid.style.display = "block";
-  e.preventDefault();
-  let valid = true;
-  if(formDataAll === false) {
-    console.log(formValid);
-  } else {
-    console.error("Merci de remplir le formulaire pour valider votre inscription");
-  }
-}
-
-function inscriptionValidate() {
-  if(formDataAll === true) {
-    
-  }
-}*/

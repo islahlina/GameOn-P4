@@ -168,7 +168,17 @@
     overflow: auto;
     background-color: rgba(26, 39, 156, 0.4);
   }
-  
+  .register-modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+  }
   .content {
     margin: 5% auto;
     width: 100%;
@@ -187,7 +197,8 @@
     padding: 15px 8%;
     margin: 15px auto;
   }
-  .close {
+  .close,
+  .close-modal-validate {
     animation-name: modalclose;
   }
   label {
@@ -299,7 +310,8 @@
     top: 19%;
   }
   
-  .close {
+  .close,
+  .close-modal-validate {
     position: absolute;
     right: 15px;
     top: 15px;
@@ -310,7 +322,9 @@
     transform: scale(0.7);
   }
   .close:before,
-  .close:after {
+  .close-modal-validate:before,
+  .close:after,
+  .close-modal-validate:after {
     position: absolute;
     left: 15px;
     content: " ";
@@ -318,14 +332,27 @@
     width: 3px;
     background-color: #fff;
   }
-  .close:before {
+  .close:before,
+  .close-modal-validate:before {
     transform: rotate(45deg);
   }
-  .close:after {
+  .close:after,
+  .close-modal-validate:after {
     transform: rotate(-45deg);
   }
   .btn-submit,
   .btn-signup {
+    background: #fe142f;
+    display: block;
+    margin: 0 auto;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 82px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+  }
+  .register-btn {
     background: #fe142f;
     display: block;
     margin: 0 auto;
