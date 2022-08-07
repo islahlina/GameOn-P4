@@ -105,7 +105,6 @@ function validateForm(event){
   }
 
   // CONSTANTE POUR BIRTHDATE (DATE DE NAISSANCE)
-  //! ⚠️ POUR UNE DATE MINIMUM (EX : AVANT LA MAJORITÉ) FAUT-IL FAIRE UN NEW DATE ?
   const birthdateForm = form.birthdate.value;
   if (birthdateForm === "" || birthdateForm.length < 8) {
     console.error("Vous n'avez pas saisie votre date de naissance");
